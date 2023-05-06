@@ -33,6 +33,7 @@ class InternetCheckerHelper extends ChangeNotifier{
         ScaffoldMessenger.of(context).removeCurrentSnackBar();
         ScaffoldMessenger.of(context).showSnackBar(
           const SnackBar(
+            backgroundColor: Colors.red,
             content: Text("Your Internet is not Stable"),
           ),
         );
