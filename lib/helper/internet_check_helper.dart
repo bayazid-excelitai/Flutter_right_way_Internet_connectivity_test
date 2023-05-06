@@ -40,6 +40,7 @@ class InternetCheckerHelper extends ChangeNotifier{
       });
     }
 
+
     notifyListeners();
     return bitsPerSecond;
   }
