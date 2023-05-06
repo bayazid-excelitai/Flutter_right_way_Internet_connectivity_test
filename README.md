@@ -1,16 +1,30 @@
 # flutter_internet_connection_test
 
-A new Flutter project.
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+# Check internet connection in your app.
+Follow the steps : 
 
-A few resources to get you started if this is your first Flutter project:
+Step 1:-
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+For check Internet connection add these packages in your pubspec yaml file
+  internet_connection_checker: ^0.0.1+4
+  provider:
+  
+For check Internet speed add these packages in your pubspec yaml file
+ http:
+ 
+Step 2:-
+wrap your material app with streamprovider like this 
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+StreamProvider<InternetConnectionStatus>(
+      initialData: InternetConnectionStatus.connected,
+      create: (_) {
+        return InternetConnectionChecker().onStatusChange;
+      },
+
+step 3:-
+
+Check specific widget for internet available or not like this
+Provider.of<InternetConnectionStatus>(context) == InternetConnectionStatus.disconnected 
